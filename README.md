@@ -24,3 +24,5 @@
    b) In the lesson todos, ignore any instructions referencing cloud9
    c) You can stop at TODO 10
 2) portfolio.html will be the file that contains all work for 'Portfolio Page
+   a) In the lesson todos, ingore TODO 1 (but copy boilerplate code)
+   b) You can stop at TODO 5
