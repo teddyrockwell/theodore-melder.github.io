@@ -194,6 +194,15 @@ if(stringOne.length > stringTwo.length){
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    var a = stringOne; // create a variable for the first argument
+    var b = stringTwo; // create a variable for the second argument
+    if (a < b){ // compare them
+    return 1; // return 1 if the first variable comes before the the second variable
+  } else if (a > b){ // compare again
+    return -1; // return -1 if the first variable comes after the second variable
+  } else if (a = b){ // compare again
+    return 0; // return 0 if the index of the first variable is the same as the index second variable
+  }
 
 
     // YOUR CODE ABOVE HERE //
@@ -210,6 +219,15 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    var a = stringOne; // create a variable for the first argument
+    var b = stringTwo; // create a variable for the second argument
+    if (a < b){ // compare them
+    return -1; // return 1 if the first variable comes before the the second variable
+  } else if (a > b){ // compare again
+    return 1; // return -1 if the first variable comes after the second variable
+  } else if (a = b){ // compare again
+    return 0; // return 0 if the index of the first variable is the same as the index second variable
+  }
 
 
 
