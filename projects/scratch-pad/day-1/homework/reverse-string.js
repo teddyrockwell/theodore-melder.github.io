@@ -21,8 +21,15 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+      
+    // split string into array 
+    var splitString = input.split("");
+    // reverse array 
+    var reverseString = splitString.reverse();
+    // join method 
+    var joinedString = reverseString.join("");
+    // return final string
+    return joinedString; 
     
     
     // YOUR CODE GOES ABOVE HERE //
