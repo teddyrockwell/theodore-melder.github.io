@@ -61,7 +61,13 @@ return string.toUpperCase();
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+        // turn string to lowercase
+      var pieceOne = string.toLowerCase();
+        // split string with string.split
+      var pieceTwo = pieceOne.split(" ");
+        // join string with string.join
+      var pieceThree = pieceTwo.join("-")
+        return pieceThree;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -81,7 +87,13 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-    
+    //check if index zero of array begins with char
+    if(string[0] == char.toUpperCase() || string[0] == char.toLowerCase()){ // make char either upper or lower case
+        return true; // return true value if true
+      } else {
+        return false; // return false value if false
+      } 
+        
 
     // YOUR CODE ABOVE HERE //
 }
@@ -101,6 +113,12 @@ function beginsWith(string, char) {
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
+    //check if index zero of array ends with char
+    if(string[string.length - 1] == char.toUpperCase() || string[string.length - 1] == char.toLowerCase()){ // must consider how to find the ending string index of string now, still make char either upper or lower case
+        return true; // return true value if true
+      } else {
+        return false; // return false value if false
+      } 
 
 
     // YOUR CODE ABOVE HERE //
@@ -114,6 +132,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    //return the strings concatenated with each other
+    return stringOne + stringTwo;
 
 
     // YOUR CODE ABOVE HERE //
@@ -133,6 +153,9 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 
+    var sentence = args.join(""); // use join method to create a string
+  
+    return sentence; // returns joined sentence string
 
     // YOUR CODE ABOVE HERE //
 }
@@ -149,7 +172,14 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //must compare length property of different strings
+if(stringOne.length > stringTwo.length){
+    return stringOne; //return stringOne since it's longer
+} else if (stringOne.length < stringTwo.length){ // evalute lengths again
+    return stringTwo; // return stringTwo since it's longer
+} else if (stringOne.length = stringTwo.length){ // evalute a possible edge case
+    return stringOne && stringTwo; // return both to show they're the same length? or could've prob said they're the same length
+}
 
     // YOUR CODE ABOVE HERE //
 }
