@@ -13,6 +13,9 @@
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
   
+  for(var i = 0; i < array.length; i++){ // for loop to loop through array
+    console.log(array[i]); // per iteration of loop, print array value
+  }
   
   
   
@@ -26,6 +29,9 @@ function printArrayValues(array) {
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
   
+  for(var i = array.length-1; i >= 0; i--){ // for loop to loop through array backwards, using array.length-1 as counter
+    console.log(array[i]); // per iteration of loop, print array values 
+  }
   
   
   
