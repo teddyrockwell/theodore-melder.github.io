@@ -13,6 +13,17 @@
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
 
+    for(var i = 1; i <= 100; i++){ // use for loop to have counter print to console
+        let string = ""; // create a variable to hold string values added
+        if(i % 3 == 0){ // if conditional statement for multiples of three to print Fizz
+          string += "Fizz"; // add Fizz to string 
+        }
+        if (i % 5 == 0){ // if conditional statement for multiples of three to print Buzz
+          string += "Buzz"; // add Buzz to string 
+        }
+        console.log(string || i); // print to console string OR current iteration of counter
+      }
+
 
 
     // YOUR CODE GOES ABOVE HERE //
