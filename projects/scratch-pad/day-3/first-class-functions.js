@@ -80,8 +80,7 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+
     
     // YOUR CODE ABOVE HERE //
 }
