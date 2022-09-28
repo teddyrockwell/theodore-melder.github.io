@@ -77,9 +77,16 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { // strings is ["a", "b", "c"]; modify capitalizes 
     // YOUR CODE BELOW HERE //
-    
+
+    var mod = []; // create a collection to push to 
+    for(var i = 0; i < strings.length; i++){ // loop counter using string length
+        mod.push(modify(strings[i])); // push the modified string iterations to a new array
+    } return mod; // return the new array
+
+/* THIS PROBLEM CAUSED ME SO MUCH ISSUE. I LITERALLY FORGOT TO RETURN THE NEW ARRAY OUTSIDE OF THE FUNCTION BLOCK. WOW.*/
+
 
     
     // YOUR CODE ABOVE HERE //
@@ -97,7 +104,12 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
+    var mod = []; // create a collection to push to 
+    for(var i = 0; i < strings.length; i++){ // loop counter using string length
+        mod.push(test(strings[i])); // push the modified string iterations to a new array
+    } 
     
+
     
     
     // YOUR CODE ABOVE HERE //
