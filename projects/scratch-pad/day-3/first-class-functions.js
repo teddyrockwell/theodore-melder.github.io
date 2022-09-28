@@ -64,7 +64,7 @@ function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
     return function(string){ // fuction that tests string 
-        return (string[string.length - 1] === endsWith.toLowerCase() || string[string.length -1] === endsWith.toUpperCase()); // function tests the first index of the string and sees whether is a lowercase or uppercase startsWith
+        return (string[string.length - 1] === endsWith.toLowerCase() || string[string.length -1] === endsWith.toUpperCase()); // function tests the last index of the string and sees whether is a lowercase or uppercase endsWith
     }
     
     // YOUR CODE ABOVE HERE //
