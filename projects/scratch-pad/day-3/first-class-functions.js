@@ -48,7 +48,7 @@ function createStartsWithFilter(startsWith) { // "a"
     // YOUR CODE BELOW HERE //
     
     return function(string){ // fuction that tests string 
-        return(startsWith.toUpperCase() == string || startsWith.toLowerCase() == string); // tests whether startsWith is the same as string, case insensitive
+        return (string[0] === startsWith.toLowerCase() || string[0] === startsWith.toUpperCase()); // function tests the first index of the string and sees whether is a lowercase or uppercase startsWith
     }
     
     
@@ -64,9 +64,8 @@ function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
     return function(string){ // fuction that tests string 
-        return(endsWith.toUpperCase() == string || endsWith.toLowerCase() == string); // tests whether endsWith is the same as string, case insensitive
+        return (string[string.length - 1] === endsWith.toLowerCase() || string[string.length -1] === endsWith.toUpperCase()); // function tests the first index of the string and sees whether is a lowercase or uppercase startsWith
     }
-    
     
     // YOUR CODE ABOVE HERE //
 }
