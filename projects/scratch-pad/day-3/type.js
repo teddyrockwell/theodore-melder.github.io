@@ -64,8 +64,17 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
+
+    /*
+    Same as previous problem, however, we only want to test if the typeof equals object, if isn't a null, and that it isn't a date
     
+    */
     
+    if(typeof value === "object" && value !== null && (value instanceof Date) === false){ // run various tests together to deteremine if object, then execute next lines
+        return true; // if true, return true
+    } else { // edge case
+        return false; // return false
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -75,9 +84,9 @@ function isCollection(value) {
  * Given an input value, return the type of the value as a String
  * 
  * Types are one of: 
- *    - "string"
- *    - "array"
- *    - "object"
+ *    - "string" -1
+ *    - "array" - 3
+ *    - "object" - 4
  *    - "undefined"
  *    - "number"
  *    - "boolean"
@@ -92,8 +101,27 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+
+
+    if(typeof value == "string"){ // if statement testing if the value is a string
+        return "string"; // return a string of string if string
+    } else if (value == null){ // // if statement testing if the value is null
+        return "null"; // return a string of null if null
+    } else if (Array.isArray(value) === true){ // if statement testing if the value is an array
+        return "array"; // return a string of array if array
+    } else if((value instanceof Date) === false && Array.isArray(value) === false && typeof value === "object" && value !== null){ // if statement testing if value is an object
+        return "object"; // return a string of object if object
+    } else if (typeof value == "boolean"){ // if statement testing if value is boolean
+        return "boolean"; // return a string of boolean if boolean
+    } else if (typeof value == "function"){ // if statement testing if value is function
+        return "function"; // return a string of function if function
+    } else if (typeof value == "undefined"){ // if statement testing if value is undefined 
+        return "undefined"; // return a string of undefined if undefined
+    } else if (typeof value == "number"){ // if statement testing if value is number
+        return "number"; // return a string of number if number
+    } else if ((value instanceof Date) === true){ // if statement testing if value is date
+        return "date"; // return a string of date if date
+    }
     
     
     // YOUR CODE ABOVE HERE //
