@@ -84,9 +84,9 @@ function isCollection(value) {
  * Given an input value, return the type of the value as a String
  * 
  * Types are one of: 
- *    - "string" -1
- *    - "array" - 3
- *    - "object" - 4
+ *    - "string" 
+ *    - "array" 
+ *    - "object" 
  *    - "undefined"
  *    - "number"
  *    - "boolean"
