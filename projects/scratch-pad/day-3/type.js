@@ -14,12 +14,16 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(Array.isArray(value) === true){ // if statement that tests whether a value is an array, if true, then next lines will execute
+        return true; // return true if an array
+    } else { // edge case 
+        return false; // return false if not an array
+    };
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+};
 
 /** 
  * Given an input value, return true if the value is an Object intended as a 
@@ -31,8 +35,22 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
+
+    /*
+    to check date - see if value is an instance of a date and if that's true or false
+
+    to check array -  use Array.isArray(value) method
     
+    to check if object -  use typeof operator
+
+    to check if null - use logic operator 
+    */
     
+    if((value instanceof Date) === false && Array.isArray(value) === false && typeof value === "object" && value !== null){ // run various tests together to deteremine if object, then execute next lines
+        return true; // if true, return true
+    } else { // edge case
+        return false; // return false
+    }
     
     
     // YOUR CODE ABOVE HERE //

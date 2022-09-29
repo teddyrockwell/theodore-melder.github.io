@@ -106,7 +106,12 @@ function allStringsPass(strings, test) {
     
     var mod = []; // create a collection to push to 
     for(var i = 0; i < strings.length; i++){ // loop counter using string length
-        mod.push(test(strings[i])); // push the modified string iterations to a new array
+        test(strings[i]); // while looping, test each iteration of strings
+        if(test(strings[0]) == true && test(strings[1]) == true && test(strings[2]) == true){ // if all three tests of strings are true
+            return true; // return true if all true
+        } else{ // edge case
+            return false; //  return false
+        }
     } 
     
 
