@@ -70,13 +70,15 @@ function makeContactList() { // b
         removeContact: function(contact){
             contacts.pop(contact); // remove contact from the contacts array
         },
-        printAllContactNames: function(){ // contacts.length is 2 
-            var ledger = "";
-            for(var i = 0; i < contacts.length; i++){
-                for(var i = 0; i < contacts.legnth - 1; i++){
-                    
-                }
+        printAllContactNames: function (){
+            var butts = []; // create an array to hold name values // THIS PROBLEM GAVE ME SOME TROUBLE BECAUSE I THOUGHT I HAD TO USE A NESTED FOR LOOP - TOOK ME A SEC TO REALIZE I COULD JOIN THE NAMES WITH THE JOIN METHOD AND A ("\n")
+            for(var i = 0; i < contacts.length; i++){ // use a loop to iterate and/or print contact names
+                butts.push(contacts[i].nameFirst + " " + contacts[i].nameLast); // push the full name values into an array
             };
+            console.log(butts); // checked for good measure 
+            var chicken = butts.join("\n"); // join the full names in the array together, with ("\n"), in order to start new lines between each value
+            console.log(chicken); // checked for extra good measure
+            return chicken; // return the full names!
         }
     }
 }
