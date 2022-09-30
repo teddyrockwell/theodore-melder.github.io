@@ -35,7 +35,12 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) { // a - FACTORY FUNCTION - contact list refers to array  - list refers to contacts
+    var contact = {};
+    contact.id = id;
+    contact.nameFirst = nameFirst;
+    contact.nameLast = nameLast;
 
+    return contact;
 } 
 
 
@@ -53,9 +58,15 @@ function makeContactList() { // b
         addContact: function(contact){
             contacts.push(contact);
         },
-        contact: function(fullName){
-            //iterate through contacts using a for loop
-        }
+        findContact: function(fullName){
+            for(var i = 0; i < contacts.length; i++){ // iterate through the contacts using a for loop 
+                if(fullName === contacts[i].nameFirst + " " + contacts[i].nameLast){ // if statement comparing fullName string to the string of the contact's object's firstName and lastName
+                    return contacts[i]; // return the contact's object iteration
+                } else { // edge case
+                    return undefined; // return undefined
+                }
+            };
+        },
     }
 }
 
