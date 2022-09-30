@@ -67,6 +67,17 @@ function makeContactList() { // b
                 }
             };
         },
+        removeContact: function(contact){
+            contacts.pop(contact); // remove contact from the contacts array
+        },
+        printAllContactNames: function(){ // contacts.length is 2 
+            var ledger = "";
+            for(var i = 0; i < contacts.length; i++){
+                for(var i = 0; i < contacts.legnth - 1; i++){
+                    
+                }
+            };
+        }
     }
 }
 
