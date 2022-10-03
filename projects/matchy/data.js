@@ -12,8 +12,8 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var animal = {};
-animal.species = "lizard";
-animal.name = "Dimitri";
+animal.species = "Lizard";
+animal.name = "Dimitri: The Nightclub Samurai";
 animal.noises = [];
 console.log(animal);
 
@@ -60,6 +60,28 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animals = [];
+animals.push(animal);
+console.log(animals);
+var duck = {
+  species: 'Duck',
+   name: 'Jerome', 
+   noises: ['quack', 'honk', 'sneeze', 'woosh']
+};
+animals.push(duck);
+console.log(animals);
+var bear = {
+  species: 'Bear',
+   name: 'Barry', 
+   noises: ['rawr', 'ugh', 'rrrr', 'roar']
+};
+var snake = {
+  species: 'Snake',
+   name: 'Jake', 
+   noises: ['Sss', 'Psst', 'Hiss']
+};
+animals.push(bear, snake);
+console.log(animals);
 
 
 
