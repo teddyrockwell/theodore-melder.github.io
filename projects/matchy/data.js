@@ -64,19 +64,19 @@ var animals = [];
 animals.push(animal);
 console.log(animals);
 var duck = {
-  species: 'Duck',
+  species: 'duck',
    name: 'Jerome', 
    noises: ['quack', 'honk', 'sneeze', 'woosh']
 };
 animals.push(duck);
 console.log(animals);
 var bear = {
-  species: 'Bear',
+  species: 'bear',
    name: 'Barry', 
    noises: ['rawr', 'ugh', 'rrrr', 'roar']
 };
 var snake = {
-  species: 'Snake',
+  species: 'snake',
    name: 'Jake', 
    noises: ['Sss', 'Psst', 'Hiss']
 };
@@ -88,8 +88,18 @@ console.log(animals);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var friends = [];
+// I think an array would be good for keeping a list of friends because it can be ordered and primarily is just centered around people.
 
+var getRandom  = function(animals){
+ return animals[Math.random() * 4];
+}
 
+friends.push(animals[2].name);
+console.log(friends);
+
+animals[3].friends.push(friends);
+console.log(animals[3].friends.push(friends));
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
