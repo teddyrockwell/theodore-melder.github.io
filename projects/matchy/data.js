@@ -15,7 +15,7 @@ var animal = {};
 animal.species = "Lizard";
 animal.name = "Dimitri: The Nightclub Samurai";
 animal.noises = [];
-console.log(animal);
+// console.log(animal);
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
@@ -25,9 +25,9 @@ noises[0] = "Sss";
 noises.push("Ah");
 noises.unshift("Hiss");
 noises[noises.length] = "Ooga Booga";
-console.log(noises.length);
-console.log(noises[noises.length - 1]);
-console.log(noises);
+// console.log(noises.length);
+// console.log(noises[noises.length - 1]);
+// console.log(noises);
 
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ console.log(noises);
 //////////////////////////////////////////////////////////////////////
 animal["noises"] = noises;
 animal.noises.push("Oingo Boingo!");
-console.log(animal);
+// console.log(animal);
 
 
 /* *******************************************************************
@@ -62,14 +62,14 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 var animals = [];
 animals.push(animal);
-console.log(animals);
+// console.log(animals);
 var duck = {
   species: 'duck',
    name: 'Jerome', 
    noises: ['quack', 'honk', 'sneeze', 'woosh']
 };
 animals.push(duck);
-console.log(animals);
+// console.log(animals);
 var bear = {
   species: 'bear',
    name: 'Barry', 
@@ -81,7 +81,7 @@ var snake = {
    noises: ['Sss', 'Psst', 'Hiss']
 };
 animals.push(bear, snake);
-console.log(animals);
+// console.log(animals);
 
 
 
@@ -91,15 +91,33 @@ console.log(animals);
 var friends = [];
 // I think an array would be good for keeping a list of friends because it can be ordered and primarily is just centered around people.
 
-var getRandom  = function(animals){
- return animals[Math.random() * 4];
+var getRandom  = function(array){
+ return Math.floor((Math.random() * animals.length)); // animals array - function -> gives the index the array -> we want the object's name. ----- we have to find a way to add bracket or dot notation to the end of the math random function.
 }
 
-friends.push(animals[2].name);
+friends.push(animals[getRandom()].name);
 console.log(friends);
 
-animals[3].friends.push(friends);
-console.log(animals[3].friends.push(friends));
+animals[getRandom()]['friends'] = friends;
+console.log(animals[getRandom()]['friends'] = friends);
+
+
+// Using **bracket notation**, add the `friends` list as a **property** also named `friends` ---- on one of the animals in the `animals` array
+
+
+
+
+
+
+
+// console.log(getRandom()['name']);
+
+// friends.push(getRandom()); // or friends.push(getRandom)['name']
+// // 
+// console.log(friends);
+
+// animals[3].friends.push(friends);
+// console.log(animals[3].friends.push(friends));
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
