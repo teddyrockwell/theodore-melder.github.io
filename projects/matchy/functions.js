@@ -45,7 +45,7 @@ function replace(animals, name, replacement){
 function remove(animals, name){
     for (let i = 0; i < animals.length; i++){
         if (animals[i].name === name){
-            animals[i].splice(name);
+            animals.splice(0, 1);
         }
     };
 }
@@ -56,12 +56,17 @@ function remove(animals, name){
 //////////////////////////////////////////////////////////////////////
 
 function add(animals, animal){
-    for (var i = 0; i < animals.length; i++){
-        if(animal.name.length > 0 && animal.species.length > 0 && animals[i].animal !== animal){
-            animals.push(animal);
+        if(animal.name.length > 0 && animal.species.length > 0 ){
+            for (var i = 0; i < animals.length; i++){
+                if(animals[i].name !== animal.name){
+                    animals.push(animal);
+                } else {
+                    return false;
+                }
+            } 
         }
-    }
 }
+
 
 /**
  * You did it! You're all done with Matchy!
