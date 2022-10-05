@@ -3,7 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+var newArray = Object.values(object); // use the object values method to get an array of object values
+return newArray; // return the array of object values
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +12,9 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+var newArray = Object.keys(object); // array of object keys
+var newerArray = newArray.join(" "); // join the keys at their spaces
+return newerArray; // return that array, dawg
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,6 +22,22 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    // Should take an object and return all its string values in a string each separated with a space
+  var tempArray = [];
+  var secondArray = [];
+  tempArray  = Object.values(object); /// here, our array has 3 strings and an object in it
+  console.log(tempArray);
+  for (var i = 0; i < tempArray.length; i++){ // loop to push items to another array
+    if(typeof tempArray[i] === "string"){ // if statement set up to only push string index values
+       secondArray.push(tempArray[i]); // push that good stuff to the new array
+    }
+
+  }
+  console.log(secondArray);
+  var chingy = secondArray.join(" "); // string that joins the new array values
+  console.log(chingy);
+  return chingy; // return that string, dawg
+
     
 }
 
@@ -27,15 +46,18 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection) === true){ // if statement testing if the value is an array
+        return "array"; // return array
+}   else if ((collection instanceof Date) === false && Array.isArray(collection) === false && typeof collection === "object" && collection !== null){ // if statement testing if value is an object
+    return "object"; // return object 
 }
-
+}
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string[0].toUpperCase();
 }
 
 //////////////////////////////////////////////////////////////////////
