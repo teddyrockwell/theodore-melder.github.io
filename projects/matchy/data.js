@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////
 var animal = {};
 animal.species = "Lizard";
-animal.name = "Dimitri: The Nightclub Samurai";
+animal.name = "Dimitri";
 animal.noises = [];
 // console.log(animal);
 
@@ -96,28 +96,17 @@ var getRandom  = function(array){
 }
 
 friends.push(animals[getRandom()].name);
-console.log(friends);
-
-animals[getRandom()]['friends'] = friends;
-console.log(animals[getRandom()]['friends'] = friends);
-
-
-// Using **bracket notation**, add the `friends` list as a **property** also named `friends` ---- on one of the animals in the `animals` array
-
-
-
-
-
-
-
-// console.log(getRandom()['name']);
-
-// friends.push(getRandom()); // or friends.push(getRandom)['name']
-// // 
 // console.log(friends);
 
-// animals[3].friends.push(friends);
-// console.log(animals[3].friends.push(friends));
+animals[getRandom()]['friends'] = friends;
+// console.log(animals[getRandom()]['friends'] = friends);
+
+// console.log(animals[1].name);
+
+
+
+
+
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and

@@ -13,12 +13,26 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function search(animals, name){
+    for (var i = 0; i < animals.length; i++){
+        if(animals[i].name === name)
+        return animals[i];
+    } return null;
+}
+    
+
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function replace(animals, name, replacement){
+    for (let i = 0; i < animals.length; i++){
+        if (animals[i].name === name){
+            animals[i] = replacement;
+        }
+    };
+}
 
 
 //////////////////////////////////////////////////////////////////////
@@ -26,12 +40,28 @@
 //////////////////////////////////////////////////////////////////////
 
 
+// If an animal with that name exists within the `animals` Array, remove it.
+
+function remove(animals, name){
+    for (let i = 0; i < animals.length; i++){
+        if (animals[i].name === name){
+            animals[i].splice(name);
+        }
+    };
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+function add(animals, animal){
+    for (var i = 0; i < animals.length; i++){
+        if(animal.name.length > 0 && animal.species.length > 0 && animals[i].animal !== animal){
+            animals.push(animal);
+        }
+    }
+}
 
 /**
  * You did it! You're all done with Matchy!
