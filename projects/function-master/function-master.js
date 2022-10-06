@@ -57,7 +57,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-
+return string.charAt(0).toUpperCase() + string.slice(1); // capitalize the character at the first index and thing add string, starting from the first index
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -65,7 +65,17 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+  var a = []; // create empty array
+  var b = []; // create another empty array
+  a = string.split(" "); // split the string up into an array
+  console.log(a); // log just to check 
+  for(var i = 0; i < a.length; i ++){ // iterate through the array
+  a[i] = a[i][0].toUpperCase() + a[i].substr(1); //  capitalize the first letter of every word and add the rest of the string
+  }
+  b = a.join(" "); //make b equal to array indexs joined
+  console.log(b); // check b
+  return b; // return b
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -73,7 +83,16 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+  var a = []; // create empty array
+  var b = []; // create another empty array
+var greet = "Welcome" + " " + object.name + "!"; // concatenate welcome with object name and exclamation point
+a = greet.split(" "); // split the string up into an array
+     for(var i = 0; i < a.length; i ++){ // iterate through the array
+  a[i] = a[i][0].toUpperCase() + a[i].substr(1); // capitalize the first letter of every word and add rest of string 
+  }
+  b = a.join(" "); // have b join everything together into a string 
+  console.log(b); // check b 
+  return b; // return b 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -81,6 +100,13 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+  var a = []; // create empty array
+var profile = object.name + " is a " + object.species; // concatenate object name and object species string
+  a = profile.split(" "); // split the string up into an array 
+  for(var i = 0; i < a.length; i ++){ // iterate through the array
+  a[i] = a[i][0].toUpperCase() + a[i].substr(1); // capitalize every word
+  }
+  return a[0] + " is a " + a[a.length - 1]; // return a contatenatation using the array indexes and a "is a" string
 
 }
 
@@ -89,7 +115,14 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+  var jif = []; // make an empty array 
+if(object.hasOwnProperty("noises") && object.noises.length > 0){ // if has a noises property in the object and the length of the noises propety is greater than zero
+  jif = object.noises.join(" "); // join the noises values together into a string
+} else { // edge case 
+  return "there are no noises"; // return that there are no noises
+}
+  console.log(jif); // log to check
+  return jif; // return the string
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -97,6 +130,17 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+  var correct = []; // create an empty array
+var check = string.split(" "); // set the string equal to an array
+  for(var i = 0; i < check.length; i++){ // iterate or loop through array
+    if(check[i] == word){ // check if the word is equal to what we're looking for
+      correct.push(check[i]); // if that is that word we're looking for, push it to a new array
+    } 
+  } if(correct.length > 0){ // if the new array has a length greater than zero
+    return true; // return true
+  } else { // edge case
+    return false; // return false
+  }
 
 }
 
@@ -105,7 +149,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+  object.friends.push(name); // push 
+  return object;
 }
 
 //////////////////////////////////////////////////////////////////////
