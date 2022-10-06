@@ -32,8 +32,21 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
+function drawChessboard(num) {
+  var pickle = ""; // empty string to hold stuff
+  var size = num; // use size to determine number of characters/lines
+  for(var i = 0; i < size; i++){ // for loop for lines - "\n"
+    for (var x = 0; x < size; x++){ // nested for loop to determine what each line witll look like
+      if((x + i) % 2 === 0){ // if the sum of x and i is divisble by 2, add to the empty string 
+        pickle += " "; // space for odd numbers
+      } else { // edge case
+        pickle += "#"; // hash for even numbers
+      }
+  } pickle += "\n"; // add new line for each iteration
+  
+    }
+  console.log(pickle); // log string to console
+  return pickle; // return string
 }
 
 ////////////////////////////////////////////////////////////////////////////////
