@@ -3,7 +3,12 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
+function triangles(number) {
+  var swag = ""; // variable that's empty but will have something added to it
+  for (var i = 0; i < number; i++){ // for loop counter that will vary output based on argument number used
+    swag += "#"; // add a # to the variable for every iteration
+    console.log(swag); // log to console for every iteration that adds a #
+  } return swag; // return what comes out
 
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +16,16 @@ function triangles() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  for(var i = 1; i <= 15; i++){ // use for loop to have counter print to console
+    let string = ""; // create a variable to hold string values added
+    if(i % 3 == 0){ // if conditional statement for multiples of three to print Fizz
+      string += "fizz"; // add Fizz to string 
+    }
+    if (i % 5 == 0){ // if conditional statement for multiples of three to print Buzz
+      string += "buzz"; // add Buzz to string 
+    }
+    console.log(string || i); // print to console string OR current iteration of counter
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
