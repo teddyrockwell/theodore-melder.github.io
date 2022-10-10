@@ -52,6 +52,10 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.type = function(){
+
+}
+
 
 /** _.first
 * Arguments:
@@ -71,6 +75,9 @@ _.identity = function(value){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number){
+
+}
 
 /** _.last
 * Arguments:
@@ -90,6 +97,10 @@ _.identity = function(value){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function (array, number){
+
+}
+
 
 /** _.indexOf
 * Arguments:
@@ -107,6 +118,9 @@ _.identity = function(value){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function (array, value){
+    
+}
 
 /** _.contains
 * Arguments:
@@ -123,6 +137,9 @@ _.identity = function(value){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.indexOf = function (array, value){
+    
+}
 
 /** _.each
 * Arguments:
@@ -164,6 +181,9 @@ _.each = function(collection, func){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function (array){
+    
+}
 
 /** _.filter
 * Arguments:
@@ -181,6 +201,9 @@ _.each = function(collection, func){
 *   use _.each in your implementation
 */
 
+_.filter = function (array, func){
+    
+}
 
 /** _.reject
 * Arguments:
@@ -195,6 +218,9 @@ _.each = function(collection, func){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function (array, func){
+    
+}
 
 /** _.partition
 * Arguments:
@@ -215,6 +241,9 @@ _.each = function(collection, func){
 }
 */
 
+_.partion = function (array, func){
+    
+}
 
 /** _.map
 * Arguments:
@@ -232,6 +261,9 @@ _.each = function(collection, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function (collection, func){
+    
+}
 
 /** _.pluck
 * Arguments:
@@ -244,6 +276,9 @@ _.each = function(collection, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function (array, property){
+    
+}
 
 /** _.every
 * Arguments:
@@ -266,6 +301,9 @@ _.each = function(collection, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function (collection, func){
+    
+}
 
 /** _.some
 * Arguments:
@@ -288,6 +326,9 @@ _.each = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function (collection, func){
+    
+}
 
 /** _.reduce
 * Arguments:
@@ -308,6 +349,9 @@ _.each = function(collection, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, func, seed){
+    
+}
 
 /** _.extend
 * Arguments:
@@ -323,6 +367,10 @@ _.each = function(collection, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function (object, object){
+    
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
