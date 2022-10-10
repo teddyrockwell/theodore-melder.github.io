@@ -141,20 +141,15 @@ _.identity = function(value){
 */
 
 _.each = function(collection, func){
-    // determine if collection is an array
-    if(Array.isArray(collection)){
-        // call input function on each element in the array
-        for (let i = 0; i < collection.length; i++){
-            // collection[i] => current item in the array. ------ access to current item, index, and array
-        func(collection[i], i, collection);
-        } else { // else it's an object 
-            // iterate through object using for in loop 
-            for (let key in collection){
-                // invoke input func, passing in current key, value, and object
-                func(collection[key], key, collection);
-            }
-        } 
-    } 
+    if(Array.isArray(collection)) {
+        for(var i = 0; i < collection.length; i++) {
+            action(collection[i], i, collection);
+        }
+    } else {
+        for (var key in collection) {
+            action(collection[key], key, collection);
+        }
+    }
 }
 
 
