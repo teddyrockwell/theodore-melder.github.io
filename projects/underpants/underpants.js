@@ -3,8 +3,13 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {};
+var _ = {}; // declaring a variable _ and assigning it an empty object // _ = {};
 
+
+/*
+
+
+*/
 
 /**
 * START OF OUR LIBRARY!
@@ -20,6 +25,11 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
+
+_.identity = function(value){
+    // returns input unchanged 
+    return value;
+};
 
 
 /** _.typeOf
@@ -129,6 +139,24 @@ var _ = {};
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+_.each = function(collection, func){
+    // determine if collection is an array
+    if(Array.isArray(collection)){
+        // call input function on each element in the array
+        for (let i = 0; i < collection.length; i++){
+            // collection[i] => current item in the array. ------ access to current item, index, and array
+        func(collection[i], i, collection);
+        } else { // else it's an object 
+            // iterate through object using for in loop 
+            for (let key in collection){
+                // invoke input func, passing in current key, value, and object
+                func(collection[key], key, collection);
+            }
+        } 
+    } 
+}
+
 
 
 /** _.unique
