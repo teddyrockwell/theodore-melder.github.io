@@ -149,8 +149,8 @@ var check = string.split(" "); // set the string equal to an array
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-  object.friends.push(name); // push 
-  return object;
+  object.friends.push(name); // push name into object.friends
+  return object; // return the object 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -158,7 +158,22 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+  var homies = []; // create an empty array
+  if(object.hasOwnProperty("friends") === false){ // if statement to check if the friends object exists
+    return false; // return false if it doesn't exist
+  }
+  if(object.hasOwnProperty("friends") && object.friends.length > 0){ // check to see if the friends object exists and if the length is greater than 0
+    for (var i = 0; i < object.friends.length; i++){ // set up for loop to iterate and check through object if passing previous condition
+      if(object.friends[i] == name){ // if the iteration of the object matches the name 
+        homies.push(object.friends[i]); // push that iteration of the object to the homies array
+      }
+    }
+    if(homies[0] == name){ // if homies equals name
+      return true; // return true; 
+    } else { // edge case
+      return false; // return false
+    }
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
