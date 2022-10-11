@@ -3,13 +3,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {}; // declaring a variable _ and assigning it an empty object // _ = {};
-
-
-/*
-
-
-*/
+var _ = {};
 
 /**
 * START OF OUR LIBRARY!
@@ -26,11 +20,9 @@ var _ = {}; // declaring a variable _ and assigning it an empty object // _ = {}
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.identity = function(value){
-    // returns input unchanged 
-    return value;
-};
-
+_.identity = function(value){ // function declaration 
+return value; // return value
+}
 
 /** _.typeOf
 * Arguments:
@@ -52,10 +44,10 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
-_.typeOf = function(value){
-    if(typeof value == "string"){ // if statement testing if the value is a string
+_.typeOf = function (value){
+if(typeof value == "string"){ // if statement testing if the value is a string
         return "string"; // return a string of string if string
-    } else if (value == null){ // // if statement testing if the value is null
+    } else if (value === null){ // // if statement testing if the value is null
         return "null"; // return a string of null if null
     } else if (Array.isArray(value) === true){ // if statement testing if the value is an array
         return "array"; // return a string of array if array
@@ -69,11 +61,8 @@ _.typeOf = function(value){
         return "undefined"; // return a string of undefined if undefined
     } else if (typeof value == "number"){ // if statement testing if value is number
         return "number"; // return a string of number if number
-    } else if ((value instanceof Date) === true){ // if statement testing if value is date
-        return "date"; // return a string of date if date
-    }
+    } 
 }
-
 
 /** _.first
 * Arguments:
@@ -93,9 +82,23 @@ _.typeOf = function(value){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
-_.first = function(array, number){
-
+_.first = function (array, number){
+    for (var i = 0; i < number; i++){
+        return array[i];
+    }
+    if (number == null){
+        return array[0];
+    } 
+    if (Math.sign(number) !== 1){
+        return [];
+    } 
+    if (number > array.length){
+    for (var i = 0; i < array.length; i++){
+        return array[i];
+    }
+    }
 }
+
 
 /** _.last
 * Arguments:
@@ -116,9 +119,12 @@ _.first = function(array, number){
 */
 
 _.last = function (array, number){
-
+if (Array.isArray(array) == false){
+return [];
+} else if (number == null || typeof number == "undefined"){
+    return array[array.length - 1];
 }
-
+}
 
 /** _.indexOf
 * Arguments:
@@ -136,10 +142,6 @@ _.last = function (array, number){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-_.indexOf = function (array, value){
-    
-}
-
 /** _.contains
 * Arguments:
 *   1) An array
@@ -154,10 +156,6 @@ _.indexOf = function (array, value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
-_.indexOf = function (array, value){
-    
-}
 
 /** _.each
 * Arguments:
@@ -175,20 +173,6 @@ _.indexOf = function (array, value){
 *      -> should log "a" "b" "c" to the console
 */
 
-_.each = function(collection, func){
-    if(Array.isArray(collection)) {
-        for(var i = 0; i < collection.length; i++) {
-            action(collection[i], i, collection);
-        }
-    } else {
-        for (var key in collection) {
-            action(collection[key], key, collection);
-        }
-    }
-}
-
-
-
 /** _.unique
 * Arguments:
 *   1) An array
@@ -198,10 +182,6 @@ _.each = function(collection, func){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-
-_.unique = function (array){
-    
-}
 
 /** _.filter
 * Arguments:
@@ -219,10 +199,6 @@ _.unique = function (array){
 *   use _.each in your implementation
 */
 
-_.filter = function (array, func){
-    
-}
-
 /** _.reject
 * Arguments:
 *   1) An array
@@ -235,10 +211,6 @@ _.filter = function (array, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
-_.reject = function (array, func){
-    
-}
 
 /** _.partition
 * Arguments:
@@ -259,10 +231,6 @@ _.reject = function (array, func){
 }
 */
 
-_.partion = function (array, func){
-    
-}
-
 /** _.map
 * Arguments:
 *   1) A collection
@@ -279,10 +247,6 @@ _.partion = function (array, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function (collection, func){
-    
-}
-
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -293,10 +257,6 @@ _.map = function (collection, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
-_.pluck = function (array, property){
-    
-}
 
 /** _.every
 * Arguments:
@@ -319,9 +279,52 @@ _.pluck = function (array, property){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function (collection, func){
-    
-}
+_.every = function(collection, func){
+if(func === undefined ){
+    //determine if collection is an array
+    if(Array.isArray(collection)){
+        //iterate through collections array
+        for(let i = 0; i < collection.length; i++){
+            //determine if collection[i] is truthy
+            if(!collection[i]){
+                //return false;
+                return false;
+            }
+        }
+    } else { //else
+        //iterate through object
+        for(let key in collection){
+            //determine if collection[key] is truthy
+            if(!collection[key]){
+                //return false;
+                return false;
+            }
+        }
+    }
+} else{ //else
+    //determine if collection is an array
+    if(Array.isArray(collection)){
+        //iterate through collections array
+        for(let i = 0; i < collection.length; i++){
+            //determine if invoking func on the params is false
+            if(func(collection[i], i, collection) === false){
+                //return false
+                return false;
+            }
+        }
+    } else{ //else its an object
+        //iterate through object
+        for(let key in collection){
+            //determine if invoking func on the params is false
+            if(func(collection[key], key, collection) === false)
+            {   //return false;
+                return false;
+            }
+        }
+    }
+}//return true
+return true;
+ }
 
 /** _.some
 * Arguments:
@@ -344,9 +347,9 @@ _.every = function (collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function (collection, func){
-    
-}
+// some compares if one or however many have, a little different from every.
+
+// reduce is a function he will explain tomorrow.
 
 /** _.reduce
 * Arguments:
@@ -367,10 +370,6 @@ _.some = function (collection, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-_.reduce = function (array, func, seed){
-    
-}
-
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -385,10 +384,6 @@ _.reduce = function (array, func, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
-_.extend = function (object, object){
-    
-}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
