@@ -20,7 +20,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.identity = function(value){ // function declaration 
+_.identity = function(value){ // function declaration, taking in the parameter of a value
 return value; // return value
 }
 
@@ -82,23 +82,21 @@ if(typeof value == "string"){ // if statement testing if the value is a string
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
-_.first = function (array, number){
-    for (var i = 0; i < number; i++){
-        return array[i];
+_.first = function(array, number) {
+    let pp = []; // create an empty array
+    if (Array.isArray(array) === false) { // if statement testing for if array is an array
+        return pp; // return an empty array 
+    } else if (typeof number !== "number") { // testing if the number given is actually a number
+        return array[0]; // return the first index of the array
+    } else if(number > array.length){ // edge case for if number is greater than array length
+        return array; // return the original array 
+    } else { // final edge case
+        for (var i = 0; i < number; i++) { // for loop using number for iterations/counting
+            pp.push(array[i]); // iterate through array (i) number of times and push those values to pp array
+        }
     }
-    if (number == null){
-        return array[0];
-    } 
-    if (Math.sign(number) !== 1){
-        return [];
-    } 
-    if (number > array.length){
-    for (var i = 0; i < array.length; i++){
-        return array[i];
-    }
-    }
-}
-
+    return pp; // RETURN OF THE PP (array)
+};
 
 /** _.last
 * Arguments:
@@ -118,13 +116,21 @@ _.first = function (array, number){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
-_.last = function (array, number){
-if (Array.isArray(array) == false){
-return [];
-} else if (number == null || typeof number == "undefined"){
-    return array[array.length - 1];
-}
-}
+_.last = function(array, number) {
+    let pp = []; // create an empty array
+    if (Array.isArray(array) === false) { // if statement testing for if array is an array
+        return pp; // return an empty array 
+    } else if (typeof number !== "number") { // testing if the number given is actually a number
+        return array[array.length - 1]; // return the last index of the array
+    } else if(number > array.length){ // edge case for if number is greater than array length
+        return array; // return the original array 
+    } else { // final edge case
+        for (var i = 1; i <= number; i++) { // for loop using number for iterations/counting
+            pp.push(array[i]); // iterate through array (i) number of times and push those values to pp array
+        }
+    }
+    return pp; // RETURN OF THE PP (array)
+};
 
 /** _.indexOf
 * Arguments:
@@ -142,6 +148,17 @@ return [];
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value){
+    if (Array.isArray(array) === false){ // check to see if the array is an array
+        return -1; // if the array isn't an array, return -1
+    }
+    for (let i = 0; i < array.length; i++){ // for loop to go through array
+        if(array[i] == value){ // if the iteration of the loop equals value
+            return i; // return that iteration value/index
+        }
+    } return -1; // return -1 as a normal sort've edge case if the value isn't in the array 
+}
+
 /** _.contains
 * Arguments:
 *   1) An array
@@ -156,6 +173,13 @@ return [];
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(array, value){ 
+if (array.includes(value) === true){ // if the array including the value equals true
+return true; // return true
+}
+return false; // return false as a normal sort've edge case if the array doesn't contain the value
+}
 
 /** _.each
 * Arguments:
@@ -173,6 +197,18 @@ return [];
 *      -> should log "a" "b" "c" to the console
 */
 
+_.each = function(collection, func){
+if(Array.isArray(collection) === true){ // if the array is an array
+    for(let i = 0; i < collection.length; i++){ // for loop to iteration through the array
+        func(collection[i], i, collection); // while iterating through the array, call the function on the array element, the index, and the array itself
+    }
+} else if (Array.isArray(collection) === false){ // edge case for if the collection is an object 
+    for (var key in collection){ // use a for in loop to through object 
+        func(collection[key], key, collection); // while iterating through object, call the function on the element keys, the key itself, and the object?
+    }
+}
+}
+
 /** _.unique
 * Arguments:
 *   1) An array
@@ -182,6 +218,16 @@ return [];
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+_.unique = function(array){ // NEED HELP ON GETTING THIS FUNCTION TO WORK WITH => _.indexOf()
+
+var pp = []; // create an empty array called pp (i think it's funny calling stuff pp and then being like "return pp" at the end)
+for( let i = 0; i < array.length; i++){ // create a for loop to iterate through our array
+    if(pp.indexOf(array[i]) === -1) {  // if statement that states if the index of the array item equals -1 (first occurance of something)
+            pp.push(array[i]); // then we will push that iteration of the array, to our pp array
+            } 
+        }
+    return pp; // RETURN OF THE PP (array)
+}
 
 /** _.filter
 * Arguments:
@@ -198,6 +244,8 @@ return [];
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+
 
 /** _.reject
 * Arguments:
