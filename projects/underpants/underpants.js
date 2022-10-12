@@ -245,6 +245,15 @@ for( let i = 0; i < array.length; i++){ // create a for loop to iterate through 
 *   use _.each in your implementation
 */
 
+_.filter = function(array, func){
+    let output = []; // create an empty array;
+    for (let i = 0; i < array.length; i++){ // for loop to iterate through array 
+        if (func(array[i], i, array)){ // iterating through function 
+            output.push(array[i]); // push iterations through to output
+        }
+    }  
+     return output; // return output
+}
 
 
 /** _.reject
@@ -259,6 +268,16 @@ for( let i = 0; i < array.length; i++){ // create a for loop to iterate through 
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, func){
+    let output = []; // create an empty array;
+    for (let i = 0; i < array.length; i++){ // for loop to iterate through array 
+        if (!func(array[i], i, array)){ // NOT iterating through function (BANG! BANG! BANG! BANG!)
+            output.push(array[i]); // push iterations through to output
+        }
+    }  
+     return output; // return output
+}
 
 /** _.partition
 * Arguments:
@@ -279,6 +298,23 @@ for( let i = 0; i < array.length; i++){ // create a for loop to iterate through 
 }
 */
 
+_.partition = function(array, func){
+    let truey = []; // create an empty array; for true
+    let falsey = []; // create an empty array; for false
+    let barginBin = []; // create an empty array for both
+    for (let i = 0; i < array.length; i++){ // for loop to iterate through array 
+        if (func(array[i], i, array)){ // iterating through function 
+            truey.push(array[i]); // push iterations through to output
+        } else if (!func(array[i], i, array)){ // NOT iterating through function (BANG! BANG! BANG! BANG!)
+           falsey.push(array[i]); // push iterations through to output
+        } 
+    }  
+    barginBin.push(truey); // push that truey stuff
+    barginBin.push(falsey); // push that falsey stuff
+     return barginBin; // return output
+}
+
+
 /** _.map
 * Arguments:
 *   1) A collection
@@ -294,6 +330,25 @@ for( let i = 0; i < array.length; i++){ // create a for loop to iterate through 
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+_.map = function(collection, func){
+    let arrayStuff = []; // create an empty array; for true
+    let objectStuff = []; // create an {empty array; for false
+for (let i = 0; i < collection.length; i++){
+    if(Array.isArray(collection) === true){ // if the array is an array
+    for(let i = 0; i < collection.length; i++){ // for loop to iteration through the array
+            if(func(collection[i], i, collection)){
+                arrayStuff.push(collection[i]);
+                }; // while iterating through the array, call the function on the array element, the index, and the array itself
+            }
+        } else if (Array.isArray(collection) === false){
+            for (var key in collection){ // use a for in loop to through object 
+                func(collection[key], key, collection); // while iterating through object, call the function on the element keys, the key itself, and the object?
+            }
+        }
+    } 
+    return arrayStuff;
+}
 
 /** _.pluck
 * Arguments:
