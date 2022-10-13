@@ -61,13 +61,10 @@ return string.toUpperCase();
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-        // turn string to lowercase
-      var pieceOne = string.toLowerCase();
-        // split string with string.split
-      var pieceTwo = pieceOne.split(" ");
-        // join string with string.join
-      var pieceThree = pieceTwo.join("-")
-        return pieceThree;
+      var pieceOne = string.toLowerCase(); // turn string to lowercase with .toLowerCase() method => all lowercase string
+      var pieceTwo = pieceOne.split(" "); // split string with string.split method => all lowercase string has now been made array items
+      var pieceThree = pieceTwo.join("-"); // join array items into a string with .join() method => array items are joined together with a dash (-)
+      return pieceThree; // return string of array items joined together with dashes
 
     // YOUR CODE ABOVE HERE //
 }
@@ -90,7 +87,7 @@ function beginsWith(string, char) {
     //check if index zero of array begins with char
     if(string[0] == char.toUpperCase() || string[0] == char.toLowerCase()){ // make char either upper or lower case
         return true; // return true value if true
-      } else {
+      } else { // edge case
         return false; // return false value if false
       } 
         
@@ -110,7 +107,7 @@ function beginsWith(string, char) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
-function endsWith(string, char) {
+function endsWith(string, char) { // same logic as beginsWith but we use string.length -1 to get the end of the string.
     // YOUR CODE BELOW HERE //
 
     //check if index zero of array ends with char
@@ -151,9 +148,9 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
+    var args = Array.from(arguments); // create array from Array.from(arguments)
 
-    var sentence = args.join(""); // use join method to create a string
+    var sentence = args.join(""); // use join method to create a string from array elements
   
     return sentence; // returns joined sentence string
 
@@ -173,9 +170,9 @@ function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
     //must compare length property of different strings
-if(stringOne.length > stringTwo.length){
+if(stringOne.length > stringTwo.length){ // if statement comparing stringOne length and stringTwo length
     return stringOne; //return stringOne since it's longer
-} else if (stringOne.length < stringTwo.length){ // evalute lengths again
+} else if (stringOne.length < stringTwo.length){ // edge case to evalute lengths again
     return stringTwo; // return stringTwo since it's longer
 } else if (stringOne.length = stringTwo.length){ // evalute a possible edge case
     return stringOne && stringTwo; // return both to show they're the same length? or could've prob said they're the same length
@@ -216,7 +213,7 @@ function sortAscending(stringOne, stringTwo) {
  *
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
-function sortDescending(stringOne, stringTwo) {
+function sortDescending(stringOne, stringTwo) { // flip the logic from sortAscending function
     // YOUR CODE BELOW HERE //
 
     var a = stringOne; // create a variable for the first argument

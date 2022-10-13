@@ -22,14 +22,10 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
       
-    // split string into array 
-    var splitString = input.split("");
-    // reverse array 
-    var reverseString = splitString.reverse();
-    // join method 
-    var joinedString = reverseString.join("");
-    // return final string
-    return joinedString; 
+    var splitString = input.split(""); // split string into an array 
+    var reverseString = splitString.reverse(); // reverse array from split string, making it the same array but backwards
+    var joinedString = reverseString.join("");   // use join method to join all backwards letters together
+    return joinedString;     // return final string
     
     
     // YOUR CODE GOES ABOVE HERE //
