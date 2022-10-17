@@ -472,18 +472,18 @@ if(func === undefined ){
         //iterate through collections array
         for(let i = 0; i < collection.length; i++){
             //determine if collection[i] is truthy
-            if(!collection[i]){
+            if(collection[i]){
                 //return false;
-                return false;
+                return true;
             }
         }
     } else { //else
         //iterate through object
         for(let key in collection){
             //determine if collection[key] is truthy
-            if(!collection[key]){
+            if(collection[key]){
                 //return false;
-                return false;
+                return true;
             }
         }
     }
@@ -493,23 +493,23 @@ if(func === undefined ){
         //iterate through collections array
         for(let i = 0; i < collection.length; i++){
             //determine if invoking func on the params is false
-            if(func(collection[i], i, collection) === false){
+            if(func(collection[i], i, collection) === true){
                 //return false
-                return false;
+                return true;
             }
         }
     } else{ //else its an object
         //iterate through object
         for(let key in collection){
             //determine if invoking func on the params is false
-            if(func(collection[key], key, collection) === false)
+            if(func(collection[key], key, collection) === true)
             {   //return false;
-                return false;
+                return true;
             }
         }
     }
 }//return true
-return true;
+return false;
  }
 
 // some compares if one or however many have, a little different from every.
@@ -535,6 +535,29 @@ return true;
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, func, seed) {
+    //create result variable
+       let result;
+      //determine if seed was not given a value
+      if (seed === undefined) {
+        //assign result first value in array          
+          result = array[0];
+          //iterate through input array
+          for (let i = 1; i < array.length; i++) {
+            result = func(result, array[i], i, array);
+          }
+        } else  {
+          //assign result the seed value
+            result = seed; 
+            //iterate normally
+            for (let i = 0; i < array.length; i++) {
+              result = func(result, array[i], i, array);
+            }
+        }
+        //else seed has a value
+        return result;
+  }
+
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -549,6 +572,11 @@ return true;
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, ...object2) {
+let cheese = Object.assign(object1, ...object2); // use object assign
+return cheese;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
