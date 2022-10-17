@@ -332,22 +332,20 @@ _.partition = function(array, func){
 */
 
 _.map = function(collection, func){
-    let arrayStuff = []; // create an empty array; for true
-    let objectStuff = []; // create an {empty array; for false
-for (let i = 0; i < collection.length; i++){
-    if(Array.isArray(collection) === true){ // if the array is an array
-    for(let i = 0; i < collection.length; i++){ // for loop to iteration through the array
-            if(func(collection[i], i, collection)){
-                arrayStuff.push(collection[i]);
-                }; // while iterating through the array, call the function on the array element, the index, and the array itself
-            }
-        } else if (Array.isArray(collection) === false){
-            for (var key in collection){ // use a for in loop to through object 
-                func(collection[key], key, collection); // while iterating through object, call the function on the element keys, the key itself, and the object?
-            }
-        }
-    } 
-    return arrayStuff;
+// we're going to be calling a function for each element in the collection passing the arguments
+
+    let result = []; // create an array for the result
+
+if (Array.isArray(collection) === true){         // if the collection is an array
+    for(let i = 0; i < collection.length; i++){     // use for loop to iteration through collection
+        result.push(func(collection[i], i, collection));    // call function on the element (collection[i]), it's index (i), and the collection (collection) and push to new array
+    }
+} else if (Array.isArray(collection) === false){ // edge case if the collection is an object
+    for (var key in collection){ // for in loop for object 
+        result.push(func(collection[key], key, collection)); // call function on the value (collection[key]), it's key (key), and the collection (collection) and push to new array
+    }
+}
+    return result;        // return the new array
 }
 
 /** _.pluck
@@ -360,6 +358,23 @@ for (let i = 0; i < collection.length; i++){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, property){ // I HONESTLY DON'T KNOW HOW I SOLVED THIS BUT I GOT IT TO WORK.
+let result = []; // create an empty array
+
+for(var i = 0; i < array.length; i++){ // create a for loop 
+    result.push(array[i][property]); // push all the properties for every element in the array's iteration?????
+}
+
+    // Objectives are to:
+
+        // 1: Return an array containing the value of the <property>, for every element in <array>
+
+        // 2. Must use _.map() in implementation 
+
+    return result; // return array
+}
+
 
 /** _.every
 * Arguments:
@@ -449,6 +464,53 @@ return true;
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+
+_.some = function(collection, func){
+if(func === undefined ){
+    //determine if collection is an array
+    if(Array.isArray(collection)){
+        //iterate through collections array
+        for(let i = 0; i < collection.length; i++){
+            //determine if collection[i] is truthy
+            if(!collection[i]){
+                //return false;
+                return false;
+            }
+        }
+    } else { //else
+        //iterate through object
+        for(let key in collection){
+            //determine if collection[key] is truthy
+            if(!collection[key]){
+                //return false;
+                return false;
+            }
+        }
+    }
+} else{ //else
+    //determine if collection is an array
+    if(Array.isArray(collection)){
+        //iterate through collections array
+        for(let i = 0; i < collection.length; i++){
+            //determine if invoking func on the params is false
+            if(func(collection[i], i, collection) === false){
+                //return false
+                return false;
+            }
+        }
+    } else{ //else its an object
+        //iterate through object
+        for(let key in collection){
+            //determine if invoking func on the params is false
+            if(func(collection[key], key, collection) === false)
+            {   //return false;
+                return false;
+            }
+        }
+    }
+}//return true
+return true;
+ }
 
 // some compares if one or however many have, a little different from every.
 
