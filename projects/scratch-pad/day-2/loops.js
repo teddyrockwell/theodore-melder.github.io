@@ -117,7 +117,7 @@ function printObjectValuesInReverse(object) {
 
   /* I know I was supposed to think of a way to loop through an object but it felt easier to me to kinda just convert to a array and do it. Please let me know if this cheating/insufficient. I always try to think of a way to show what I DO know instead of what I might not know.  */
 
-  var values = Object.values(object); // create an array o object values
+  var values = Object.values(object); // create an array of object values
   values.reverse(); // reverse array order 
   for (var i = 0; i < values.length; i++){ // use a for loop to loop through the array
     console.log(values[i]); // print to console values from array, thus printing object values in reverse

@@ -11,20 +11,20 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var animal = {};
-animal.species = "Lizard";
-animal.name = "Dimitri";
-animal.noises = [];
+var animal = {}; // create animal object 
+animal.species = "Lizard"; // add species key with lizard value 
+animal.name = "Dimitri"; // add name key with dimitri value
+animal.noises = []; // add noises key with empty array value
 // console.log(animal);
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var noises = [];
-noises[0] = "Sss";
-noises.push("Ah");
-noises.unshift("Hiss");
-noises[noises.length] = "Ooga Booga";
+var noises = []; // create noises array
+noises[0] = "Sss"; // first item in noises array is sss
+noises.push("Ah"); // add ah to the end of noises array
+noises.unshift("Hiss"); // add hiss to the front of the noises array
+noises[noises.length] = "Ooga Booga"; // add ooga booga using noises.length as an index number
 // console.log(noises.length);
 // console.log(noises[noises.length - 1]);
 // console.log(noises);
@@ -33,8 +33,8 @@ noises[noises.length] = "Ooga Booga";
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-animal["noises"] = noises;
-animal.noises.push("Oingo Boingo!");
+animal["noises"] = noises; // assign animal noises key and assign value of noises array
+animal.noises.push("Oingo Boingo!"); // add oingo boingo to end of animal noises array
 // console.log(animal);
 
 
@@ -60,27 +60,27 @@ animal.noises.push("Oingo Boingo!");
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var animals = [];
-animals.push(animal);
+var animals = []; // create animals array
+animals.push(animal); // add animal to animals array
 // console.log(animals);
-var duck = {
+var duck = { // create duck object
   species: 'duck',
    name: 'Jerome', 
    noises: ['quack', 'honk', 'sneeze', 'woosh']
 };
 animals.push(duck);
 // console.log(animals);
-var bear = {
+var bear = { // create bear object
   species: 'bear',
    name: 'Barry', 
    noises: ['rawr', 'ugh', 'rrrr', 'roar']
 };
-var snake = {
+var snake = { // create snake object
   species: 'snake',
    name: 'Jake', 
    noises: ['Sss', 'Psst', 'Hiss']
 };
-animals.push(bear, snake);
+animals.push(bear, snake); // add bear and snake objects to animals array 
 // console.log(animals);
 
 

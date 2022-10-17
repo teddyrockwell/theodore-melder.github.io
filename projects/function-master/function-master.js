@@ -180,8 +180,15 @@ function isFriend(name, object) {
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
-
+function nonFriends(name, array) { 
+  var notMe = []; // create an empty array to use
+for (let i = 0; i < array.length; i++){ // use a for loop to iterate through array
+  if (array[i].name !== name && array[i].friends.indexOf(name)){ // if the iteration of the array's name does not match the name value and if the iterations of friends don't match
+    notMe.push(array[i].name); // push name values to array
+  }
+} 
+  console.log(notMe); // console log to check
+  return notMe; // return array
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -189,7 +196,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value; // update the object key equal to the value
+return object; // return the object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -197,7 +205,9 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+for (var i = 0; i < array.length; i++){ // for loop to iterate through array of strings
+  delete object[array[i]]; // delete the object values that come from being iterated out of the array
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -205,7 +215,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+var pp = [...new Set(array)]; // use Set to get rid of duplicates 
+return pp; // return PP array
 }
 
 //////////////////////////////////////////////////////////////////////

@@ -13,11 +13,11 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function search(animals, name){
-    for (var i = 0; i < animals.length; i++){
-        if(animals[i].name === name)
-        return animals[i];
-    } return null;
+function search(animals, name){ // creating function taking in animals and name arguments
+    for (var i = 0; i < animals.length; i++){ // for loop to iterate through animals array
+        if(animals[i].name === name) // if the animals iteration name is equivalent to the name argument 
+        return animals[i]; // return that animals iteration
+    } return null;  // else do nothing
 }
     
 
@@ -26,10 +26,10 @@ function search(animals, name){
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function replace(animals, name, replacement){
-    for (let i = 0; i < animals.length; i++){
-        if (animals[i].name === name){
-            animals[i] = replacement;
+function replace(animals, name, replacement){ // creating function taking in animals, name, and replacement arguments
+    for (let i = 0; i < animals.length; i++){ // for loop to iterate through animals array
+        if (animals[i].name === name){ // if the animals iteration name is equivalent to the name argument
+            animals[i] = replacement; // assign/replace that animals iteration to replacement value
         }
     };
 }
@@ -42,10 +42,10 @@ function replace(animals, name, replacement){
 
 // If an animal with that name exists within the `animals` Array, remove it.
 
-function remove(animals, name){
-    for (let i = 0; i < animals.length; i++){
-        if (animals[i].name === name){
-            animals.splice(0, 1);
+function remove(animals, name){ // creating function taking in animals and name arguments
+    for (let i = 0; i < animals.length; i++){ // for loop to iterate through animals array
+        if (animals[i].name === name){ // if the animals iteration name is equivalent to the name argument
+            animals.splice(0, 1); // remove it from the animals array
         }
     };
 }
@@ -55,13 +55,13 @@ function remove(animals, name){
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function add(animals, animal){
-        if(animal.name.length > 0 && animal.species.length > 0 ){
-            for (var i = 0; i < animals.length; i++){
-                if(animals[i].name !== animal.name){
-                    animals.push(animal);
-                } else {
-                    return false;
+function add(animals, animal){ // creating function taking in animals and animal arguments
+        if(animal.name.length > 0 && animal.species.length > 0 ){ // if animal name is greater than zero and the animal species length is greater than zero
+            for (var i = 0; i < animals.length; i++){ // then create a for loop that iterates for the equivalent of animals lenth
+                if(animals[i].name !== animal.name){ // if animals iteration name is not equal to the animal name
+                    animals.push(animal); // add the animal name to the animals array
+                } else { // edge case
+                    return false; // return false 
                 }
             } 
         }

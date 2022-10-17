@@ -39,7 +39,7 @@ function greeter(hour) {
     if (hour >= 0 && hour <= 11){ // conditional statement for 0-11 hours
         console.log("Good Morning!"); // log good morning based on conditional statement
     } else if (hour >= 12 && hour <= 16){ // conditional statement for 12-16 hours
-        console.log("Good Afternoon!"); // log good afternoon basde on conditional statement
+        console.log("Good Afternoon!"); // log good afternoon based on conditional statement
     } else if (hour >= 17 && hour <= 21){ // conditional statement for 17-21 hours
         console.log("Good Evening!"); // log good evening based on conditional statement
     } else { // don't need an else if, can just use else
