@@ -218,11 +218,11 @@ if(Array.isArray(collection) === true){ // if the array is an array
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-_.unique = function(array){ // NEED HELP ON GETTING THIS FUNCTION TO WORK WITH => _.indexOf()
+_.unique = function(array){ 
 
 var pp = []; // create an empty array called pp (i think it's funny calling stuff pp and then being like "return pp" at the end)
 for( let i = 0; i < array.length; i++){ // create a for loop to iterate through our array
-    if(pp.indexOf(array[i]) === -1) {  // if statement that states if the index of the array item equals -1 (first occurance of something)
+    if(pp.indexOf(array[i]) === -1) {  // if statement that states if the index of the array item equals -1 ( indicating duplicate)
             pp.push(array[i]); // then we will push that iteration of the array, to our pp array
             } 
         }
@@ -272,7 +272,7 @@ _.filter = function(array, func){
 _.reject = function(array, func){
     let output = []; // create an empty array;
     for (let i = 0; i < array.length; i++){ // for loop to iterate through array 
-        if (!func(array[i], i, array)){ // NOT iterating through function (BANG! BANG! BANG! BANG!)
+        if (!func(array[i], i, array)){ // iterating through function for what not to include (BANG! BANG! BANG! BANG!)
             output.push(array[i]); // push iterations through to output
         }
     }  

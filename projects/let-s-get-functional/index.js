@@ -70,7 +70,9 @@ invoke _.reduce()
 
 */
 
-var oldestCustomer;
+var oldestCustomer = function (array){
+
+};
 
 var youngestCustomer;
 
