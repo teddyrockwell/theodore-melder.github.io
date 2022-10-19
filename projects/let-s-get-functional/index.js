@@ -31,7 +31,7 @@ var maleCount = function(array) {
     let males = _.filter(array, function(customer){
         // return true if customer is male
         if (customer.gender === "male"){
-            return customer.gender === "male";
+            return true;
         }
     }); // assign males to result of what filter returns 
     return males.length;
@@ -71,14 +71,41 @@ invoke _.reduce()
 */
 
 var oldestCustomer = function (array){
-
+let oldest = _.reduce(array, function(acc, current){
+        if (acc < current.age){
+            acc = current.age;
+        }
+        return acc;
+    }, 0);
+    for(var i = 0; i < array.length; i++){
+       if (array[i].age === oldest){
+        return array[i].name;
+       } 
+    }
 };
 
-var youngestCustomer;
+var youngestCustomer = function (array){
+    let youngest = _.reduce(array, function(acc, current){
+            if (!acc < current.age){
+                acc = current.age;
+            }
+            return acc;
+        }, 0);
+        for(var i = 0; i < array.length; i++){
+           if (array[i].age === youngest){
+            return array[i].name;
+           } 
+        }
+    };;
 
 var averageBalance;
 
-var firstLetterCount;
+var firstLetterCount = function (array, letter){ 
+    array.map(function(customer){
+return customer.name[0] === letter;
+    });
+    
+};
 
 var friendFirstLetterCount;
 
