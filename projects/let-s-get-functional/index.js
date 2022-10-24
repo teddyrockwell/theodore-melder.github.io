@@ -86,34 +86,54 @@ let oldest = _.reduce(array, function(acc, current){
 
 var youngestCustomer = function (array){
     let youngest = _.reduce(array, function(acc, current){
-            if (!acc < current.age){
-                acc = current.age;
-            }
-            return acc;
-        }, 0);
-        for(var i = 0; i < array.length; i++){
-           if (array[i].age === youngest){
-            return array[i].name;
-           } 
+        if (!acc < current.age){
+            acc = current.age;
         }
-    };;
+        return acc;
+    }, 0);
+    for(var i = 0; i < array.length; i++){
+       if (array[i].age <= youngest){
+        return array[i].name;
+       } 
+    }
+    };
 
-var averageBalance;
+var averageBalance = function(array){
+    let money =  _.reduce(array, (acc, current) =>
+    acc + parseFloat((current.balance.replace(/[$,]/g, "")))
+    , 0);
+    return money / array.length;
+};
 
 var firstLetterCount = function (array, letter){ 
-    array.map(function(customer){
-return customer.name[0] === letter;
-    });
+var count = 0;
+for(var i = 0; i < array.length; i++){
+    if (array[i].name.charAt(0) == letter.toUpperCase() || array[i].name.charAt(0) == letter.toLowerCase()){
+        count += 1;
+    }
+} return count;
     
 };
 
-var friendFirstLetterCount;
-
+var friendFirstLetterCount = function (array, customer, letter){ 
+    
+}
 var friendsCount;
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function(array){
+    let info = array.map(x => x.gender); // get information on the number of genders and covert it all to an array
+    let genderCount = info.reduce((gender, count) => { // start accumalation of times a gender occurs
+        if (gender.hasOwnProperty(count)){ // if gender has an occurence
+          gender[count]++; // increment up
+        } else { // edge case
+          gender[count] = 1; // assign that gender occurence to one
+        }
+        return gender; // return the object
+      }, {});
+      return genderCount; // return the total value of the function 
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
