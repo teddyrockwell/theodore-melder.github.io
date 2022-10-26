@@ -116,9 +116,33 @@ for(var i = 0; i < array.length; i++){
 };
 
 var friendFirstLetterCount = function (array, customer, letter){ 
-    
+    let empty = 0;
+  for (let i = 0; i < array.length; i++){
+    if(array[i].name === customer){
+      let homies = array[i].friends;
+      for (let h = 0; h < homies.length; h++){
+        if ((homies[h].name.charAt(0) === letter.toUpperCase()) || (homies[h].name.charAt(0) === letter.toLowerCase())){
+          empty++;
+        };
+      }
+    } 
+  }
+  console.log(empty)
+return empty;
+  
 }
-var friendsCount;
+var friendsCount = function(array, name){
+    let empty = [];
+    for (let i = 0 ; i < array.length; i++){
+      let friends = array[i].friends;
+      for(let j = 0; j < friends.length; j++){
+        if(friends[j].name === name){
+          empty.push(array[i].name);
+        }
+      }
+    }    
+    return empty;
+};
 
 var topThreeTags;
 
