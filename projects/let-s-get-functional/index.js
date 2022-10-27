@@ -144,7 +144,31 @@ var friendsCount = function(array, name){
     return empty;
 };
 
-var topThreeTags;
+var topThreeTags = function(array){
+  let empty = [];
+  let doubleEmpty = [];
+    for (let i = 0; i < array.length; i++){
+  let totes = array[i].tags;
+    for (let j = 0; j < totes.length; j++){
+      empty.push(totes[j]);    
+    }
+  }
+let johnTravolta = empty.reduce((tag, count) => {
+    if (tag.hasOwnProperty(count)){
+      tag[count]++;
+    } else {
+      tag[count] = 1;
+    }
+  return tag;
+}, {})
+  for (var key in johnTravolta){
+    if (johnTravolta[key] === 3){
+      doubleEmpty.push(key);
+    }
+  }
+  console.log(doubleEmpty);
+  return doubleEmpty;
+};
 
 var genderCount = function(array){
     let info = array.map(x => x.gender); // get information on the number of genders and covert it all to an array
