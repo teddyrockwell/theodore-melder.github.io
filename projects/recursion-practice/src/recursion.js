@@ -5,11 +5,23 @@
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
 var factorial = function(n) {
+  if(n < 0){ // BC
+    return null;
+  }
+  if (n === 0 || n === 1){ // BC
+    return 1;
+  } 
+  // RC
+  return factorial(n - 1) * n
 };
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
+  if (array.length === 0){
+    return 0; // WHY DO WE HAVE TO RETURN ZERO HERE?????
+  }
+  return sum(array.slice(1)) + array[0];
 };
 
 // AINT GOTTA DO // 3. Sum all numbers in an array containing nested arrays. // AINT GOTTA DO
@@ -19,17 +31,32 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  
+  if (n === 1){ // BC
+    return false;
+  } else if(n === 0){
+    return true;
+  }
+  // RC
+  return isEven(Math.abs(n) - 2); // Should use Math.abs() to get the absolute value of something
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 0){
+    return 0;
+  } else if (n < 0){
+    return sumBelow(n + 1) + (n + 1);
+  }
+  return sumBelow(Math.abs(n) - 1) + (Math.abs(n)-1);
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+
 };
 
 // 7. Compute the exponent of a number.
@@ -45,14 +72,26 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
 };
 
-// 9. Write a function that accepts a string a reverses it.
+// 9. Write a function that accepts a string and reverses it.
 var reverse = function(string) {
+  if (string.length === 0){
+    return "";
+  }
+  return reverse(string.slice(1)) + string.charAt(0);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  if (string.length === 0 || string.length === 1 || string.length === 2){
+    return true;
+  }
+  if ((string.charAt(0).toUpperCase() === string.charAt(string.length - 1).toUpperCase()) || (string.charAt(0).toUpperCase() === string.charAt(string.length - 1).toLowerCase()) || (string.charAt(0).toLowerCase() === string.charAt(string.length - 1).toLowerCase()) || (string.charAt(0).toLowerCase() === string.charAt(string.length - 1).toUpperCase())){
+    return palindrome(string.slice(1, string.length - 1));
+  }
+  return false;
 };
 
 // AINT GOTTA DO // 11. Write a function that returns the remainder of x divided by y without using the
@@ -67,6 +106,14 @@ var modulo = function(x, y) { // AINT GOTTA DO
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if (y === 0){
+    return 0;
+  }
+  if (y > 0){
+    return (x + multiply(x, y-1));
+  }
+  if (y < 0 )
+    return -multiply(x, -y);
 };
 
 // AINT GOTTA DO // 13. Write a function that divides two numbers without using the / operator  or 
@@ -88,11 +135,13 @@ var gcd = function(x, y) { // AINT GOTTA DO
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+  
 };
 
 // 17. Reverse the order of an array
