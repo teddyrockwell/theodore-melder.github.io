@@ -1,6 +1,7 @@
 /**
  * CONTROL FLOW:
- *
+ *  Statements: Code that performs an action
+ * 
  * Conditional Statements allow us to control the flow of our application, boiling down comparisons and or values based on their
  * truthy-ness or falsey-ness.
  * 
