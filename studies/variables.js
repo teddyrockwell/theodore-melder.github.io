@@ -30,3 +30,110 @@ console.log(myName); // prints => Theo
 // Changing or updating the value of a previously assigned variable 
 myName = "Teddy";
 console.log(myName); // prints => Teddy
+
+
+/**
+ * 1. VAR: The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+ * 
+ * 
+ * 2. LET: The let declaration declares a block-scoped local variable, optionally initializing it to a value.
+ * 
+ * 3. CONST: Constants are block-scoped, much like variables declared using the let keyword. 
+ * The value of a constant can't be changed through reassignment (i.e. by using the assignment operator), and it can't be redeclared (i.e. through a variable declaration).
+ * However, if a constant is an object or array its properties or items can be updated or removed.
+ * 
+ * 
+ * 
+ */
+
+// 1. Var //
+
+/*
+
+Reassignable? => Yes
+
+Hoisted? => Yes
+
+Scoped to functions? => Yes
+
+Scoped to if blocks? => NO
+
+Scoped to loop blocks? => NO
+
+*/
+
+var age = 23;
+age = 24; // This is allowed
+
+// 2. Let // 
+
+/*
+
+Reassignable? => Yes
+
+Hoisted? => NO
+
+Scoped to functions? => Yes
+
+Scoped to if blocks? => Yes
+
+Scoped to loop blocks? => Yes
+
+*/
+
+let canSalsa = true;
+canSalsa = false; // This is allowed
+
+// 3. Const // 
+
+/*
+
+Reassignable? => NO
+
+Hoisted? => NO
+
+Scoped to functions? => Yes
+
+Scoped to if blocks? => Yes
+
+Scoped to loop blocks? => Yes
+
+*/
+
+const cool = true;
+cool = false; // This is NOT allowed and will liekly produce a read only error. 
+
+// Var and Let can be reassigned, however Const cannot.
+
+/**
+ * 1. Hoisting: Refers to the process whereby the interpreter appears to move the VAR declaration of functions, variables, 
+ * or classes to the top of their scope, prior to execution of the code.
+ * 
+ * Because of this, VAR values will not throw ReferenceErrors if you try to reference them before they are declared. 
+ * Instead, they will return the value of undefined. Only the declaration, not the initialization, is brought to the top.
+ * 
+ * 2. Let and Const values are NOT hoisted and therefore if you try referencing them before they are declared, you will get a Reference Error.
+ * 
+ * 
+ */
+
+// 1. Hoisting //
+
+// during the lexing phase x is loaded into memory 
+
+console.log(x); // This will print undefined
+
+var x = 99;
+
+console.log(x) // This will print 99
+
+// 2. Let & Const //
+
+console.log(y); // This will throw a Reference Error
+
+console.log(teddy); // This will also throw a Reference Error
+
+
+let y = 50;
+
+const teddy = "Teddy2Gloves";
