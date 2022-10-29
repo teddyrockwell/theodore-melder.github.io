@@ -27,7 +27,11 @@
  * 
  *  Keys are essentially strings.
  *  
+ *  2 Parts of a For In Loop:
+ *  (1) How to refer to keys => 
+ *  (2) Which object to loop over => 
  * 
+ *       Key ref    object
  *  for (var key in object)
  * 
  *  3. WHILE LOOP:
@@ -55,9 +59,41 @@ for (let i = 0; i < array.length; i++){
 
 let numbers = [1, 2, 3, 4, 5];
 for (let i = 0; i < numbers.length; i++){
-    console.log(numbers[i]); // prints => 1, 2, 3, 4, 5
+    console.log(numbers[i]); // prints => 1, 2, 3, 4, 5         => showcases looping through an array fronts
 }
 
-for (let i = numbers.length; i <= 0; i--){
-    console.log(numbers[i]);
+for (let i = numbers.length -1; i >= 0; i--){
+    console.log(numbers[i]); // prints => 5, 4, 3, 2, 1         => showscases looping through an array backwards
 }
+
+
+// 2. For In Loop //
+
+let lakers = {team: "Lakers", goodNow: false, championships: 17};
+
+for(var key in lakers){
+    console.log(key); // prints => team, goodNow, championships
+}
+
+for(var key in lakers){
+    console.log(lakers[key]); // prints => Lakers, false, 17
+}
+
+// 3. While Loop //
+
+let money = 5
+
+while (money >= 0){ // condition 
+    console.log(`You have ${money} dollars.`); // statement
+    money--; // update
+} // prints =>
+/*
+You have 5 dollars.
+You have 4 dollars.
+You have 3 dollars.
+You have 2 dollars.
+You have 1 dollars.
+You have 0 dollars.
+*/
+
+// prints the statment multiple times, while, the money variable is >= 0.  Once it decrements beyond 0, it stops.
