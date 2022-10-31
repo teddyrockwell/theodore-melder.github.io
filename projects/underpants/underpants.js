@@ -574,8 +574,8 @@ _.reduce = function (array, func, seed) {
 */
 
 _.extend = function(object1, ...object2) {
-let cheese = Object.assign(object1, ...object2); // use object assign
-return cheese;
+let cheese = Object.assign(object1, ...object2); // use object assign and spread operator and assign to variable
+return cheese; // return variable
   }
 
 //////////////////////////////////////////////////////////////////////
